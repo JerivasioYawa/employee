@@ -47,6 +47,7 @@ public class Employee {
                 '}';
     }
 
+    //Main method
     public static void main(String[] args) {
 
         Employee e1 = new Employee("1", "Ayabonga", "Yawa");
