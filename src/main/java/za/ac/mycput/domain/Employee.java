@@ -1,61 +1,112 @@
 package za.ac.mycput.domain;
 
 public class Employee {
-    private String EmployeeNum;
-    private String FirstName;
-    private String lastName;
+    protected String employeeNum;
+    protected String firstName;
+    protected String lastName;
+    protected String email;
+    protected double salary;
 
+    //Aggregation or Composition
+    protected Address address;
+
+    //Constructors
     public Employee() {
     }
 
-    public Employee(String employeeNum, String firstName, String lastName) {
-        this.EmployeeNum = employeeNum;
-        this.FirstName = firstName;
+    public Employee(String employeeNum, String firstName, String lastName, String email, double salary, Address address) {
+        this.employeeNum = employeeNum;
+        this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
+        this.salary = salary;
+        this.address = address;
     }
 
-    public void setEmployeeNum(String employeeNum) {
-        this.EmployeeNum = employeeNum;
-    }
 
-    public void setFirstName(String firstName) {
-        FirstName = firstName;
-    }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
+    //Getters
     public String getEmployeeNum() {
-        return EmployeeNum;
+        return employeeNum;
     }
+
 
     public String getFirstName() {
-        return FirstName;
+        return firstName;
     }
+
 
     public String getLastName() {
         return lastName;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+
     @Override
     public String toString() {
         return "Employee{" +
-                "employeeNum='" + EmployeeNum + '\'' +
-                ", FirstName='" + FirstName + '\'' +
+                "employeeNum='" + employeeNum + '\'' +
+                ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", salary=" + salary +
+                ", address=" + address +
                 '}';
     }
 
-    //Main method
-    public static void main(String[] args) {
+    public static class Builder{
 
-        Employee e1 = new Employee("1", "Ayabonga", "Yawa");
-        Employee e2 = new Employee("2", "Jervasio", "fall");
+        protected String employeeNum;
+        protected String firstName;
+        protected String lastName;
+        protected String email;
+        protected double salary;
+
+        //Aggregation or Composition
+        protected Address address;
+
+        //Setters
+        public Builder setEmployeeNum(String employeeNum) {
+            this.employeeNum = employeeNum;
+            return this;
+        }
 
 
+        public Builder setFirstName(String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
 
-        System.out.println(e1.toString());
-        System.out.println(e2.toString());
+        public Builder setLastName(String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+
+        public  Builder setEmail(String email) {
+            this.email = email;
+            return this;
+        }
+
+        public  Builder setSalary(double salary) {
+            this.salary = salary;
+            return this;
+        }
+
     }
+
+
+
+
 }
